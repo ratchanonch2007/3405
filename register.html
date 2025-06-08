@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก - ร้านค้าออนไลน์</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+</head>
+<body>
+    <div class="glitch-wrapper">
+        <div class="container">
+            <div class="login-box register-box">
+                <div class="cyberpunk-border">
+                    <h2 class="glitch-text" data-text="สมัครสมาชิก">สมัครสมาชิก</h2>
+                    <form id="registerForm">
+                        <div class="input-group">
+                            <input type="text" id="studentId" pattern="\d{10}" required>
+                            <label for="studentId">รหัสนักศึกษา</label>
+                            <div class="line"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" pattern="\d{10}" required>
+                            <label for="phone">เบอร์โทรศัพท์</label>
+                            <div class="line"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" required>
+                            <label for="password">รหัสผ่าน</label>
+                            <div class="line"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="confirmPassword" required>
+                            <label for="confirmPassword">ยืนยันรหัสผ่าน</label>
+                            <div class="line"></div>
+                        </div>
+                        <button type="submit" class="neon-button">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            สมัครสมาชิก
+                        </button>
+                        <div class="links">
+                            <a href="index.html" class="cyber-link">มีบัญชีอยู่แล้ว? เข้าสู่ระบบ</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="register.js"></script>
+</body>
+</html> 

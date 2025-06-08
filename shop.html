@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านค้าออนไลน์ - 3405 SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="shop-container">
+        <!-- Navbar -->
+        <nav class="cyberpunk-nav">
+            <div class="nav-brand glitch-text" data-text="3405 SHOP">3405 SHOP</div>
+            <div class="nav-links">
+                <a href="#" class="cyber-link admin-only" id="adminDashboardBtn" style="display: none;">
+                    <i class="fas fa-user-shield"></i> ADMIN Dashboard
+                </a>
+                <a href="#" class="cyber-link" id="orderHistoryBtn">
+                    <i class="fas fa-history"></i> ประวัติการสั่งซื้อ
+                </a>
+                <a href="#" class="cyber-link" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> LOGOUT
+                </a>
+                <div class="cart-icon" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3 class="glitch-text" data-text="รถเข็นของคุณ">รถเข็นของคุณ</h3>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-total">
+                <p>ยอดรวม: <span class="total-amount">฿0</span></p>
+                <button class="neon-button checkout-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    ชำระเงิน
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+            <!-- Product cards will be added here dynamically -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html> 

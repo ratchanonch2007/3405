@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap');
+
+:root {
+    --neon-green: #0f0;
+    --dark-bg: #000000;
+    --darker-bg: #0a0a0a;
+    --text-color: #ffffff;
+    --box-bg: rgba(0, 10, 0, 0.95);
+    --cyber-blue: #0ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--dark-bg);
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 45%, var(--neon-green) 45%, var(--neon-green) 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, var(--neon-green) 45%, var(--neon-green) 55%, transparent 55%);
+    background-size: 3px 3px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.login-box, .register-box {
+    background: var(--box-bg);
+    padding: 40px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-box {
+    max-width: 700px;
+    min-height: 600px;
+}
+
+.cyberpunk-border {
+    position: relative;
+    padding: 40px;
+    border: 2px solid var(--neon-green);
+    animation: borderLight 4s infinite linear;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cyberpunk-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--neon-green);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.3;
+}
+
+.glitch-text {
+    text-align: center;
+    font-size: 3em;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--cyber-blue);
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: 2px 0 #ff0000;
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #0f0;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #0f0;
+    pointer-events: none;
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.input-group .line {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    overflow: hidden;
+}
+
+.input-group input:focus ~ label,
+.input-group label.float {
+    top: -20px;
+    left: 0;
+    font-size: 12px;
+    opacity: 1;
+    text-shadow: 0 0 10px #0f0;
+}
+
+.input-group input:focus ~ .line:after {
+    transform: translateX(0);
+}
+
+.neon-button {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: none;
+    color: var(--neon-green);
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.neon-button span {
+    position: absolute;
+    display: block;
+}
+
+.neon-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green));
+    animation: btn-anim1 1s linear infinite;
+}
+
+.neon-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--neon-green));
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s;
+}
+
+.neon-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, var(--neon-green));
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s;
+}
+
+.neon-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, var(--neon-green));
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s;
+}
+
+.neon-button:hover {
+    background: var(--neon-green);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--neon-green);
+    transition-delay: 0.5s;
+}
+
+.links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cyber-link {
+    color: var(--neon-green);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.cyber-link:hover {
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+@keyframes borderLight {
+    0% { border-color: var(--neon-green); }
+    25% { border-color: var(--cyber-blue); }
+    50% { border-color: var(--neon-green); }
+    75% { border-color: var(--cyber-blue); }
+    100% { border-color: var(--neon-green); }
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(20% 0 30% 0); }
+    20% { clip-path: inset(40% 0 10% 0); }
+    40% { clip-path: inset(60% 0 80% 0); }
+    60% { clip-path: inset(10% 0 50% 0); }
+    80% { clip-path: inset(30% 0 70% 0); }
+    100% { clip-path: inset(50% 0 20% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(30% 0 40% 0); }
+    20% { clip-path: inset(50% 0 20% 0); }
+    40% { clip-path: inset(70% 0 90% 0); }
+    60% { clip-path: inset(20% 0 60% 0); }
+    80% { clip-path: inset(40% 0 80% 0); }
+    100% { clip-path: inset(60% 0 30% 0); }
+}
+
+@keyframes btn-anim1 {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+@keyframes btn-anim2 {
+    0% { top: -100%; }
+    50%, 100% { top: 100%; }
+}
+
+@keyframes btn-anim3 {
+    0% { right: -100%; }
+    50%, 100% { right: 100%; }
+}
+
+@keyframes btn-anim4 {
+    0% { bottom: -100%; }
+    50%, 100% { bottom: 100%; }
+}
+
+/* Rainbow effect for Admin Dashboard button */
+@keyframes rainbow {
+    0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; border-color: #ff0000; }
+    17% { color: #ff8800; text-shadow: 0 0 10px #ff8800; border-color: #ff8800; }
+    33% { color: #ffff00; text-shadow: 0 0 10px #ffff00; border-color: #ffff00; }
+    50% { color: #00ff00; text-shadow: 0 0 10px #00ff00; border-color: #00ff00; }
+    67% { color: #0088ff; text-shadow: 0 0 10px #0088ff; border-color: #0088ff; }
+    84% { color: #8800ff; text-shadow: 0 0 10px #8800ff; border-color: #8800ff; }
+    100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; border-color: #ff0000; }
+}
+
+#adminDashboardBtn {
+    position: relative;
+    padding: 8px 15px;
+    border: 2px solid;
+    border-radius: 5px;
+    overflow: hidden;
+    animation: rainbow 5s linear infinite;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    margin-right: 15px;
+}
+
+#adminDashboardBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#adminDashboardBtn:hover::before {
+    left: 100%;
+}
+
+#adminDashboardBtn i {
+    margin-right: 5px;
+    animation: rainbow 5s linear infinite;
+}
+
+#adminDashboardBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+} 
